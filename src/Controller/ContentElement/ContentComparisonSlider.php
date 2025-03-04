@@ -49,6 +49,8 @@ class ContentComparisonSlider extends AbstractContentElementController
     }
 
     private function updateTemplateValues(Template $template, ContentModel $model){
+        $template->class .= " ce_comparison-slider"; // Backwards compatibility
+        
         if (isset($model->pictureLeftSRC) && isset($model->pictureRightSRC)) {
             $figure = System::getContainer()
                 ->get('contao.image.studio')
