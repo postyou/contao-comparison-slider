@@ -2,15 +2,10 @@
 
 declare(strict_types=1);
 
-/**
- * Comparison Slider Widget for Contao Open Source CMS.
+/*
+ * This file is part of postyou/project-management-bundle.
  *
- * @copyright Postyou 2016
- * @author Mario Gienapp
- *
- * @see https://postyou.de
- *
- * @license http://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0
+ * (c) POSTYOU Digital- & Filmagentur
  */
 
 use Contao\ArrayUtil;

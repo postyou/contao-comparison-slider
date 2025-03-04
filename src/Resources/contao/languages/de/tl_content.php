@@ -2,6 +2,12 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of postyou/project-management-bundle.
+ *
+ * (c) POSTYOU Digital- & Filmagentur
+ */
+
 use Postyou\ComparisonSlider\Controller\ContentElement\ContentComparisonSlider;
 
 $GLOBALS['TL_LANG']['CTE'][ContentComparisonSlider::TYPE] = ['Comparison Slider', ''];

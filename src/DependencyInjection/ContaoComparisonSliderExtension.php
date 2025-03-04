@@ -3,11 +3,9 @@
 declare(strict_types=1);
 
 /*
- * This file is part of postyou/contao-easy-popup.
+ * This file is part of postyou/project-management-bundle.
  *
- * (c) John Doe
- *
- * @license LGPL-3.0-or-later
+ * (c) POSTYOU Digital- & Filmagentur
  */
 
 namespace Postyou\ComparisonSlider\DependencyInjection;

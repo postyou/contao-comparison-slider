@@ -41,5 +41,8 @@ return $config
             'format' => 'short',
         ],
         'strict_comparison' => false,
+        'header_comment' => [
+            'header' => $header
+        ]
     ])
     ->setFinder($finder);
