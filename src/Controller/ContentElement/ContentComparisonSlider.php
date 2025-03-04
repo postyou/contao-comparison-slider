@@ -26,13 +26,7 @@ class ContentComparisonSlider extends AbstractContentElementController
         //Backend Ausgabe
         if ($this->scopeMatcher->isBackendRequest($request)) {
             $objTemplate = new BackendTemplate('be_wildcard');
-
             $objTemplate->wildcard = '### ' . mb_strtoupper("Comparison Slider") . ' ###';
-            $objTemplate->title = $model->headline;
-            $objTemplate->id = $model->id;
-            $objTemplate->link = $model->name;
-            $objTemplate->href = 'contao/main.php?do=themes&table=tl_module&act=edit&id=' . $model->id;
-
             return $objTemplate->getResponse();
         }
 
