@@ -51,7 +51,7 @@
       "composer update --working-dir tools/phpstan"
     ],
     "php-cs-fixer": [
-        "tools/php-cs-fixer/bin/php-cs-fixer fix -v --ansi"
+        "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --ansi"
     ]
   }
 }

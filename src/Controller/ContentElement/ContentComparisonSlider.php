@@ -1,5 +1,7 @@
-<?php 
-  
+<?php
+
+declare(strict_types=1);
+
 namespace Postyou\ComparisonSlider\Controller\ContentElement;
 
 use Contao\BackendTemplate;
@@ -23,16 +25,16 @@ class ContentComparisonSlider extends AbstractContentElementController
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
-        //Backend Ausgabe
         if ($this->scopeMatcher->isBackendRequest($request)) {
             $objTemplate = new BackendTemplate('be_wildcard');
-            $objTemplate->wildcard = '### ' . mb_strtoupper("Comparison Slider") . ' ###';
+            $objTemplate->wildcard = '### Comparison Slider ###';
+
             return $objTemplate->getResponse();
         }
 
         $this->initializeAssets();
         $this->updateTemplateValues($template, $model);
-        
+
         return $template->getResponse();
     }
 
@@ -42,15 +44,16 @@ class ContentComparisonSlider extends AbstractContentElementController
         $GLOBALS['TL_JAVASCRIPT']['comparisonSlider'] = 'bundles/contaocomparisonslider/js/comparison_slider.js';
     }
 
-    private function updateTemplateValues(Template $template, ContentModel $model){
-        $template->class .= " ce_comparison-slider"; // Backwards compatibility
-        
+    private function updateTemplateValues(Template $template, ContentModel $model)
+    {
+        $template->class .= ' ce_comparison-slider'; // Backwards compatibility
+
         if (isset($model->pictureLeftSRC) && isset($model->pictureRightSRC)) {
             $figure = System::getContainer()
                 ->get('contao.image.studio')
                 ->createFigureBuilder()
                 ->from($model->pictureLeftSRC)
-                ->setOptions(["caption" => $model->textLeft, "floatClass" => " " . $this->textPositionClass($model->textLeftPosition)])
+                ->setOptions(['caption' => $model->textLeft, 'floatClass' => ' '.$this->textPositionClass($model->textLeftPosition)])
                 ->setSize($model->size)
                 ->buildIfResourceExists();
 
@@ -58,23 +61,23 @@ class ContentComparisonSlider extends AbstractContentElementController
                 ->get('contao.image.studio')
                 ->createFigureBuilder()
                 ->from($model->pictureRightSRC)
-                ->setOptions(["caption" => $model->textRight, "floatClass" => " " . $this->textPositionClass($model->textRightPosition)])
+                ->setOptions(['caption' => $model->textRight, 'floatClass' => ' '.$this->textPositionClass($model->textRightPosition)])
                 ->setSize($model->size)
                 ->buildIfResourceExists();
-
 
             $template->picture_one = $figure->getLegacyTemplateData();
             $template->picture_two = $figure2->getLegacyTemplateData();
         }
     }
 
-    private function textPositionClass($textPosition) {
+    private function textPositionClass($textPosition)
+    {
         return match ($textPosition) {
-            'top-left' => "comparison-slider-top-left",
-            'top-right' => "comparison-slider-top-right",
-            'bottom-left' => "comparison-slider-bottom-left",
-            'bottom-right' => "comparison-slider-bottom-right",
-            default => ""
+            'top-left' => 'comparison-slider-top-left',
+            'top-right' => 'comparison-slider-top-right',
+            'bottom-left' => 'comparison-slider-bottom-left',
+            'bottom-right' => 'comparison-slider-bottom-right',
+            default => '',
         };
     }
 }

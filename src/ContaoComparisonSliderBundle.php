@@ -6,5 +6,6 @@ namespace Postyou\ComparisonSlider;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ContaoComparisonSliderBundle extends Bundle {
+class ContaoComparisonSliderBundle extends Bundle
+{
 }

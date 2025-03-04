@@ -10,12 +10,14 @@ use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Postyou\ComparisonSlider\ContaoComparisonSliderBundle;
 
-class Plugin implements BundlePluginInterface {
-    public function getBundles(ParserInterface $parser): array {
+class Plugin implements BundlePluginInterface
+{
+    public function getBundles(ParserInterface $parser): array
+    {
         return [
             BundleConfig::create(ContaoComparisonSliderBundle::class)
                 ->setLoadAfter([
-                    ContaoCoreBundle::class
+                    ContaoCoreBundle::class,
                 ]),
         ];
     }

@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Comparison Slider Widget for Contao Open Source CMS
+ * Comparison Slider Widget for Contao Open Source CMS.
  *
  * @copyright Postyou 2016
  * @author Mario Gienapp
- * @link https://postyou.de
+ *
+ * @see https://postyou.de
+ *
  * @license http://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0
  */
 
@@ -33,49 +37,48 @@ $GLOBALS['TL_DCA']['tl_content']['palettes'][ContentComparisonSlider::TYPE] = '{
 /*
  * Fields
  */
-ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
+ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, [
+    'pictureLeftSRC' => [
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['pictureLeftSRC'],
+        'inputType' => 'fileTree',
+        'eval' => ['filesOnly' => true, 'fieldType' => 'radio', 'mandatory' => true, 'tl_class' => ''],
+        'sql' => 'binary(16) NULL',
+    ],
 
-	'pictureLeftSRC' => array(
-		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['pictureLeftSRC'],
-		'inputType'		=> 'fileTree',
-		'eval'          => array('filesOnly' => true, 'fieldType' => 'radio', 'mandatory' => true, 'tl_class' => ''),
-		'sql'			=> 'binary(16) NULL'
-	),
+    'pictureRightSRC' => [
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['pictureRightSRC'],
+        'inputType' => 'fileTree',
+        'eval' => ['filesOnly' => true, 'fieldType' => 'radio', 'mandatory' => true, 'tl_class' => ''],
+        'sql' => 'binary(16) NULL',
+    ],
 
-	'pictureRightSRC' => array(
-		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['pictureRightSRC'],
-		'inputType'		=> 'fileTree',
-		'eval'          => array('filesOnly' => true, 'fieldType' => 'radio', 'mandatory' => true, 'tl_class' => ''),
-		'sql'			=> 'binary(16) NULL'
-	),
+    'textLeft' => [
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['textLeft'],
+        'inputType' => 'text',
+        'eval' => ['maxlength' => 256, 'tl_class' => 'w50 clr'],
+        'sql' => "varchar(256) NOT NULL default ''",
+    ],
 
-	'textLeft' => array(
-		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['textLeft'],
-		'inputType'		=> 'text',
-		'eval'          => array('maxlength' => 256, 'tl_class' => 'w50 clr'),
-		'sql'			=> "varchar(256) NOT NULL default ''"
-	),
+    'textLeftPosition' => [
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['textLeftPosition'],
+        'inputType' => 'select',
+        'eval' => ['maxlength' => 256, 'tl_class' => 'w50'],
+        'options' => &$GLOBALS['TL_LANG']['tl_content']['textPositionOptions'],
+        'sql' => "varchar(256) NOT NULL default ''",
+    ],
 
-	'textLeftPosition' => array(
-		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['textLeftPosition'],
-		'inputType'		=> 'select',
-		'eval'          => array('maxlength' => 256, 'tl_class' => 'w50'),
-		'options'		=> &$GLOBALS['TL_LANG']['tl_content']['textPositionOptions'],
-		'sql'			=> "varchar(256) NOT NULL default ''"
-	),
+    'textRight' => [
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['textRight'],
+        'inputType' => 'text',
+        'eval' => ['maxlength' => 256, 'tl_class' => 'w50'],
+        'sql' => "varchar(256) NOT NULL default ''",
+    ],
 
-	'textRight' => array(
-		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['textRight'],
-		'inputType'		=> 'text',
-		'eval'          => array('maxlength' => 256, 'tl_class' => 'w50'),
-		'sql'			=> "varchar(256) NOT NULL default ''"
-	),
-
-	'textRightPosition' => array(
-		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['textRightPosition'],
-		'inputType'		=> 'select',
-		'eval'          => array('maxlength' => 256, 'tl_class' => 'w50'),
-		'options'		=> &$GLOBALS['TL_LANG']['tl_content']['textPositionOptions'],
-		'sql'			=> "varchar(256) NOT NULL default ''"
-	)
-));
+    'textRightPosition' => [
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['textRightPosition'],
+        'inputType' => 'select',
+        'eval' => ['maxlength' => 256, 'tl_class' => 'w50'],
+        'options' => &$GLOBALS['TL_LANG']['tl_content']['textPositionOptions'],
+        'sql' => "varchar(256) NOT NULL default ''",
+    ],
+]);
