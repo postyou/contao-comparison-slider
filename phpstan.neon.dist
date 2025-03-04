@@ -1,0 +1,12 @@
+parameters:
+	level: 6
+	paths:
+		- src
+
+	ignoreErrors:
+		- '#Method .*::.*\(\) has parameter .*\$.* with no type specified#'
+		- '#Method .*::.*\(\) has no return type specified#'
+		- '#Access to an undefined property .*::\$Template#'
+		- '#Access to an undefined property Contao(.*)Template::#'
+		- '#Access to an undefined property Contao\DataContainer::\$activeRecord#'
+		- '#Access to an undefined property Contao\Database\Result#'

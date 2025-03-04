@@ -1,44 +1,57 @@
 {
-    "name": "postyou/contao-comparison-slider",
-    "description": "Slider to compare two images e.g. before/after",
-    "keywords": [
-        "contao",
-        "comparison",
-        "tl_content",
-        "slider"
-    ],
-    "type": "contao-bundle",
-    "license": "LGPL-3.0+",
-    "authors": [
-        {
-            "name": "postyou",
-            "homepage": "http://postyou.de"
-        },
-        {
-            "name": "Mario Gienapp",
-            "role": "Developer"
-        },
-        {
-            "name": "Mateusz Żołdak",
-            "role": "Developer"
-        }
-    ],
-    "support": {
-        "email": "kontakt@postyou.de",
-        "issues": "https://github.com/postyou/contao-comparison-slider/issues?direction=desc&sort=created&state=open",
-        "source": "https://github.com/postyou/contao-comparison-slider"
+  "name": "postyou/contao-comparison-slider",
+  "description": "Slider to compare two images e.g. before/after",
+  "keywords": [
+    "contao",
+    "comparison",
+    "tl_content",
+    "slider"
+  ],
+  "type": "contao-bundle",
+  "license": "LGPL-3.0+",
+  "authors": [
+    {
+      "name": "postyou",
+      "homepage": "http://postyou.de"
     },
-    "require": {
-        "php": ">=8.0",
-        "contao/core-bundle": " ^4.13 || ^5.3",
-        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
+    {
+      "name": "Mario Gienapp",
+      "role": "Developer"
     },
-    "autoload": {
-        "psr-4": {
-            "Postyou\\ComparisonSlider\\": "src/"
-        }
-    },
-    "extra": {
-      "contao-manager-plugin": "Postyou\\ComparisonSlider\\ContaoManager\\Plugin"
+    {
+      "name": "Mateusz Żołdak",
+      "role": "Developer"
     }
+  ],
+  "support": {
+    "email": "kontakt@postyou.de",
+    "issues": "https://github.com/postyou/contao-comparison-slider/issues?direction=desc&sort=created&state=open",
+    "source": "https://github.com/postyou/contao-comparison-slider"
+  },
+  "require": {
+    "php": ">=8.0",
+    "contao/core-bundle": " ^4.13 || ^5.3",
+    "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Postyou\\ComparisonSlider\\": "src/"
+    }
+  },
+  "extra": {
+    "contao-manager-plugin": "Postyou\\ComparisonSlider\\ContaoManager\\Plugin"
+  },
+  "scripts": {
+    "install-tools": [
+      "composer install --working-dir tools/php-cs-fixer",
+      "composer install --working-dir tools/phpstan"
+    ],
+    "update-tools": [
+      "composer update --working-dir tools/php-cs-fixer",
+      "composer update --working-dir tools/phpstan"
+    ],
+    "php-cs-fixer": [
+        "tools/php-cs-fixer/bin/php-cs-fixer fix -v --ansi"
+    ]
+  }
 }
