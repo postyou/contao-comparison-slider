@@ -7,16 +7,20 @@
         "tl_content",
         "slider"
     ],
-    "type": "contao-module",
+    "type": "contao-bundle",
     "license": "LGPL-3.0+",
     "authors": [
+        {
+            "name": "postyou",
+            "homepage": "http://postyou.de"
+        },
         {
             "name": "Mario Gienapp",
             "role": "Developer"
         },
         {
-            "name": "postyou",
-            "homepage": "http://postyou.de"
+            "name": "Mateusz Żołdak",
+            "role": "Developer"
         }
     ],
     "support": {
@@ -26,14 +30,15 @@
     },
     "require": {
         "php": ">=8.0",
-        "contao/core-bundle": " ^4.9",
+        "contao/core-bundle": " ^4.13 || ^5.3",
         "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
     },
-    "extra": {
-        "contao": {
-            "sources": {
-                "": "system/modules/contao-comparison-slider"
-            }
+    "autoload": {
+        "psr-4": {
+            "Postyou\\ComparisonSlider\\": "src/"
         }
+    },
+    "extra": {
+      "contao-manager-plugin": "Postyou\\ComparisonSlider\\ContaoManager\\Plugin"
     }
 }

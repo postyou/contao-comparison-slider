@@ -1,4 +1,4 @@
-<div class="<?= $this->classNames ?>" <?= $this->cssID ?>>
+<div class="<?= $this->class ?>" <?= $this->cssID ?>>
 
 	<?php $this->insert('image', [...$this->picture_one, "picture" => [...$this->picture_one['picture'], "img" => [...$this->picture_one['picture']['img'], "loading" => "eager"]]]) ?>
 	<?php $this->insert('image', [...$this->picture_two, "picture" => [...$this->picture_two['picture'], "img" => [...$this->picture_two['picture']['img'], "loading" => "eager"]]]) ?>

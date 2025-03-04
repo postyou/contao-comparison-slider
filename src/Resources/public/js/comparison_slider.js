@@ -1,5 +1,5 @@
 function initComparisonSliders() {
-    let comparisonSliders = document.querySelectorAll('.ce_comparison-slider');
+    let comparisonSliders = document.querySelectorAll('.ce_comparison_slider');
 
     function buildSlider(slider) {
         let comparisonSliderWidth;

@@ -2,19 +2,4 @@ contao-comparison-slider
 =====================
 Sliderinhaltselement für Contao. Ermöglicht den Vergleich 2er Bilder z.B. vorher/nachher
 
-usage:
-
-"require": {
-
-        "postyou/contao-comparison-slider": "dev-master"
-},
-
-
-"repositories": [
-
-        {
-            "type": "vcs",
-            "url": "https://github.com/postyou/contao-comparison-slider"
-        }
-        
-]
+<img src="example/comparison-slider.png" alt="Vergleich Beispiel" width="500">

@@ -9,34 +9,26 @@
  * @license http://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0
  */
 
-use Contao\Input;
-use Contao\Backend;
 use Contao\ArrayUtil;
 use Contao\BackendUser;
+use Postyou\ComparisonSlider\Controller\ContentElement\ContentComparisonSlider;
 
 /*
  * Config
  */
 
-$GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] = function ($dc) {
-	if ($_POST || Input::get('act') != 'edit')
-		return;
+// $GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] = function ($dc) {
+// 	$objUser = BackendUser::getInstance();
 
-	$objUser = BackendUser::getInstance();
-
-	if (!$objUser->hasAccess('themes', 'modules') ||  !$objUser->hasAccess('layout', 'themes'))
-		return;
-};
+// 	if (!$objUser->hasAccess('themes', 'modules') ||  !$objUser->hasAccess('layout', 'themes'))
+// 		return;
+// };
 
 /*
  * Palettes
  */
 
-ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['palettes'], 0, array(
-
-	'Einzelelement'		=> '{type_legend},type;{Slider Einstellungen}, pictureLeftSRC,pictureRightSRC,size, textLeft, textLeftPosition	,textRight, textRightPosition;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop',
-
-));
+$GLOBALS['TL_DCA']['tl_content']['palettes'][ContentComparisonSlider::TYPE] = '{type_legend},type;{Slider Einstellungen}, pictureLeftSRC,pictureRightSRC,size, textLeft, textLeftPosition	,textRight, textRightPosition;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
 
 /*
  * Fields
@@ -68,7 +60,7 @@ ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
 		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['textLeftPosition'],
 		'inputType'		=> 'select',
 		'eval'          => array('maxlength' => 256, 'tl_class' => 'w50'),
-		'options_callback' => array('tl_comparison_slider', 'getTextPositionOptions'),
+		'options'		=> &$GLOBALS['TL_LANG']['tl_content']['textPositionOptions'],
 		'sql'			=> "varchar(256) NOT NULL default ''"
 	),
 
@@ -83,19 +75,7 @@ ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
 		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['textRightPosition'],
 		'inputType'		=> 'select',
 		'eval'          => array('maxlength' => 256, 'tl_class' => 'w50'),
-		'options_callback' => array('tl_comparison_slider', 'getTextPositionOptions'),
+		'options'		=> &$GLOBALS['TL_LANG']['tl_content']['textPositionOptions'],
 		'sql'			=> "varchar(256) NOT NULL default ''"
 	)
 ));
-
-class tl_comparison_slider extends Backend {
-
-	public function getTextPositionOptions() {
-		return array(
-			"top-left" => "Top Left",
-			"top-right" => "Top Right",
-			"bottom-left" => "Bottom Left",
-			"bottom-right" => "Bottom Right"
-		);
-	}
-}
